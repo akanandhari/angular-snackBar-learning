@@ -1,0 +1,9 @@
+
+
+
+
+<div class="container">
+  <div class="listItem" @item *ngFor="let message of messageList" [ngClass]="{'error':message.type=='error','info':message.type=='info','success':message.type=='success'}">
+    {{message.content}}
+  </div>
+</div>

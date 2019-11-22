@@ -1,0 +1,39 @@
+p {
+  font-family: Lato;
+}
+.container
+{
+  position:fixed;
+  right:0;
+  bottom: 0;
+  z-index:1000;
+ 
+  width:auto;
+ 
+  height:auto;
+}
+.listItem
+{
+  width: 200px;
+  margin:10px;
+  background-color: black;
+  color:white;
+ 
+  
+  border:1px solid transparent;
+}
+.error
+{
+   border-left-width:5px;
+  border-left-color: red;
+}
+.success
+{
+   border-left-width:5px;
+  border-left-color: greenyellow;
+}
+.info
+{
+ border-left-width:5px;
+   border-left-color:orange;
+}
