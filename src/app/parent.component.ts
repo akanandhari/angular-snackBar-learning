@@ -1,5 +1,6 @@
 import { Component, Input,OnInit } from '@angular/core';
 import{Message} from './message';
+import {SnackBarService} from './snack-bar.service';
 @Component({
   selector: 'parent',
   templateUrl: './parent.component.html',
@@ -16,6 +17,10 @@ export class parentComponent implements OnInit {
   {
     console.log(data);
   }
+  constructor(public snackService:SnackBarService)
+  {
+    
+  }
 showSnack()
 {
 this.i++;
@@ -25,6 +30,7 @@ this.i++;
   this.message.type="success";}
    if(this.i%5){
   this.message.type="error";}
+  this.snackService.setVal(this.message);
 
 }
 

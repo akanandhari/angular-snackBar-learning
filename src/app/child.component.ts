@@ -1,6 +1,7 @@
 import { Component,OnInit,Input,OnChanges,Output,EventEmitter } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 import{Message} from './message';
+import {SnackBarService} from './snack-bar.service';
 @Component({
   selector: 'snackBar',
   templateUrl: './child.component.html',
@@ -24,16 +25,28 @@ import{Message} from './message';
     
     
   ]
-  
+,
+
 })
 export class childComponent implements OnChanges  {
   name = 'Angular';
   i=0;
-  @Input("data")
+ 
    message:Message;
   @Output("sharmi")
    sreemathiSendBack=new EventEmitter();
    messageList:Message[]=[];
+
+constructor(public snackService:SnackBarService)
+{
+ this.snackService.val.subscribe((vlaue)=>
+ {
+   this.message=vlaue;
+   this.showSnack();
+
+ });
+}
+
   ngOnInit()
   {
     console.log("init");
@@ -52,13 +65,8 @@ console.log(this.message);
       this.sreemathiSendBack.emit("completed from snackbar");
     }
   }
-  ngOnChanges(simpleChange)
-  {
-if(simpleChange.message.currentValue&&simpleChange.message.currentValue.content!="")
-{
-  console.log(this.message);
-  this.showSnack();
-}
-  }
+
+
+
 }
 
